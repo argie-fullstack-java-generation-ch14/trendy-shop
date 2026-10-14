@@ -22,7 +22,7 @@ main.carrito-page h2 {
   text-transform: uppercase;
 }
  
-/* ----- Layout de dos columnas ----- */
+/* Layout de dos columnas*/
 .carrito__layout {
   display: grid;
   grid-template-columns: 1fr 380px;
@@ -30,12 +30,14 @@ main.carrito-page h2 {
   align-items: start;
 }
  
-/* ----- Tarjeta de la lista ----- */
+/*  Tarjeta de la lista  */
 #carrito-lista {
+
   padding: 0 24px;
   background: var(--humo);
   border: 1px solid var(--gris);
   border-radius: 10px;
+  min-height: 425px;
 }
  
 #carrito-lista > p {
@@ -95,7 +97,7 @@ main.carrito-page h2 {
   font-size: 14px;
 }
  
-/* ----- Cantidad ) ----- */
+/*  Cantidad  */
 #carrito-lista > * > :has(> button) {
   position: absolute;
   right: 0;
@@ -149,7 +151,7 @@ main.carrito-page h2 {
   opacity: 0.7;
 }
  
-/* ----- Panel de resumen ----- */
+/* Panel de resumen*/
 .carrito__panel {
   position: sticky;
   top: 24px;
@@ -184,7 +186,7 @@ main.carrito-page h2 {
   font-size: 20px;
 }
  
-/* ----- Cupón ----- */
+/*  Cupón */
 .carrito__cupon {
   margin-top: 8px;
 }
@@ -249,7 +251,7 @@ main.carrito-page input:focus-visible {
   outline-offset: 2px;
 }
  
-/* ----- Móvil ----- */
+/* seccion movil */
 @media (max-width: 900px) {
   .carrito__layout {
     grid-template-columns: 1fr;

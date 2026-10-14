@@ -5,8 +5,6 @@
     --gris: #B0B0B0;
     --humo: #F0F0F0;
     --carbon: #404040;
-    --verde: #00843D;
-    --naranja: #E87524;
 
     padding: 20px;
     color: var(--negro);
@@ -32,7 +30,7 @@
     align-items: center;
     gap: 8px;
     padding: 10px;
-    background: #D6D6C5;
+    background: var(--beige);
     cursor: pointer;
 }
 
@@ -43,7 +41,7 @@
 
 /* Checkbox */
 .halloween .categoria {
-    accent-color: var(--verde);
+    accent-color: var(--carbon);
     cursor: pointer;
 }
 
@@ -74,9 +72,9 @@
 
 /* Botones generales */
 .halloween .btn {
-    color: #FFFFFF;
+    color: var(--beige);
     background: var(--carbon);
-    border: none;
+    border: 1px solid var(--carbon);
     border-radius: 7px;
     transition: 0.2s;
 }
@@ -146,20 +144,23 @@
 
 /* Botón Detalles */
 .halloween .tarjeta .btn-detalles {
-    background: var(--verde);
+    color: var(--negro);
+    background: var(--beige);
+    border-color: var(--gris);
 }
 
 .halloween .tarjeta .btn-detalles:hover {
-    background: #006B32;
+    background: var(--gris);
 }
 
 /* Botón Agregar */
 .halloween .tarjeta .btn-agregar {
-    background: var(--naranja);
+    color: #FFFFFF;
+    background: var(--carbon);
 }
 
 .halloween .tarjeta .btn-agregar:hover {
-    background: #C65310;
+    background: var(--negro);
 }
 
 /* Botones de las tarjetas */
@@ -167,6 +168,21 @@
     min-height: 40px;
     padding: 8px 5px;
     font-size: 14px;
+}
+
+/* Modal */
+.halloween .tarjeta-detalles {
+    border-radius: 12px;
+}
+
+.halloween .imagen-detalle {
+    width: 100%;
+    max-height: 220px;
+    object-fit: contain;
+}
+
+.halloween .descripcion {
+    color: var(--carbon);
 }
 
 /* Móviles */

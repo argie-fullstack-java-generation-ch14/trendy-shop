@@ -23,6 +23,19 @@ function resolveLinks(container) {
   });
 }
 
+function resolveModulePaths(container, path) {
+  if (!container) return;
+  const base = new URL(path, APP_BASE);
+
+  ["src", "href"].forEach((attribute) => {
+    container.querySelectorAll(`[${attribute}]`).forEach((element) => {
+      const value = element.getAttribute(attribute);
+      if (!value || /^([a-z]+:|\/\/|#|\/)/i.test(value)) return;
+      element.setAttribute(attribute, new URL(value, base).href);
+    });
+  });
+}
+
 async function renderPartial(selector, name) {
   const container = document.querySelector(selector);
   if (!container) return;
@@ -41,6 +54,13 @@ function extractContent(html) {
   return main ? main.innerHTML : doc.body.innerHTML;
 }
 
+function initBootstrapComponents(container) {
+  if (!container || typeof bootstrap === "undefined") return;
+  container.querySelectorAll('[data-bs-ride="carousel"]').forEach((carousel) => {
+    bootstrap.Carousel.getOrCreateInstance(carousel);
+  });
+}
+
 async function renderSection(selector, path) {
   const container = document.querySelector(selector);
   if (!container) return;
@@ -48,6 +68,8 @@ async function renderSection(selector, path) {
   try {
     const html = await fetchPage(path);
     container.innerHTML = extractContent(html);
+    resolveModulePaths(container, path);
+    initBootstrapComponents(container);
   } catch (error) {
     container.innerHTML = '<div class="alert alert-danger">No se pudo cargar el contenido.</div>';
     console.error(error);

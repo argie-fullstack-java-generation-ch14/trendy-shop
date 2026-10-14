@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const routes = {
     "#inicio": "inicio/index.html",
     "#catalogo": "catalogo/index.html",
-    "#crea-tu-lumina": "contactanos/index.html",
+    "#contact-us": "contactanos/index.html",
     "#about-us": "quienes-somos/index.html",
   };
 

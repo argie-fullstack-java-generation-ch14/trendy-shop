@@ -7,7 +7,7 @@
     --color-gris-oscuro: #404040;
 }
 
-body.fashion-bg {
+.contact-us {
     background-color: var(--color-blanco-calido);
     font-family: 'Montserrat', sans-serif;
     color: var(--color-negro);

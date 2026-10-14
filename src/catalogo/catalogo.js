@@ -1,5 +1,3 @@
-// import { agregarProducto } from "../services/cartService.js";
-
 export function mostrarProductos(productos) {
     const contenedor = document.getElementById("productos");
     contenedor.innerHTML = "";
@@ -25,5 +23,3 @@ export function mostrarProductos(productos) {
             </div>`;
     }
 }
-
-// agregarProducto({ id: producto.id, nombre: producto.title, precio: producto.price, imagen: producto.image });

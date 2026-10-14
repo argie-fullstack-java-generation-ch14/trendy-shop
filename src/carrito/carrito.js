@@ -52,7 +52,7 @@ lista.addEventListener("click",(evento)=>{
     const id = Number(boton.dataset.id);// para que coincida con el id del numnero 
     if (boton.dataset.accion ==="sumar")cambiarCantidad(id,1);
     if (boton.dataset.accion ==="restar")cambiarCantidad(id,-1);
-    if (boton.dataset.accion ==="eliminar")eliminarproducto(id);
+    if (boton.dataset.accion ==="eliminar")eliminarProducto(id);
 
     renderizarCarrito();
     renderizarResumen();

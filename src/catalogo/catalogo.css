@@ -1,0 +1,185 @@
+/* Catálogo */
+.halloween {
+    --negro: #101010;
+    --beige: #E0E0D0;
+    --gris: #B0B0B0;
+    --humo: #F0F0F0;
+    --carbon: #404040;
+    --verde: #00843D;
+    --naranja: #E87524;
+
+    padding: 20px;
+    color: var(--negro);
+    background: var(--beige);
+    border-radius: 12px;
+}
+
+/* Filtros y categorías */
+.halloween .filtros,
+.halloween .categoria-item {
+    background: var(--humo);
+    border: 1px solid var(--gris);
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.halloween .filtros h4 {
+    font-weight: 700;
+}
+
+.halloween .categoria-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    background: #D6D6C5;
+    cursor: pointer;
+}
+
+.halloween .categoria-item:hover {
+    background: var(--gris);
+    border-color: var(--carbon);
+}
+
+/* Checkbox */
+.halloween .categoria {
+    accent-color: var(--verde);
+    cursor: pointer;
+}
+
+/* Labels e inputs */
+.halloween .form-label {
+    color: var(--negro);
+    font-weight: 600;
+}
+
+.halloween .form-control {
+    color: var(--negro);
+    background: var(--humo);
+    border: 1px solid var(--gris);
+    border-radius: 7px;
+    transition: 0.2s;
+}
+
+.halloween .form-control:hover {
+    background: var(--beige);
+    border-color: var(--carbon);
+}
+
+.halloween .form-control:focus {
+    background: #FFFFFF;
+    border-color: var(--carbon);
+    box-shadow: 0 0 0 2px #40404030;
+}
+
+/* Botones generales */
+.halloween .btn {
+    color: #FFFFFF;
+    background: var(--carbon);
+    border: none;
+    border-radius: 7px;
+    transition: 0.2s;
+}
+
+.halloween .btn:hover {
+    color: #FFFFFF;
+    background: var(--negro);
+}
+
+/* Tarjetas */
+.halloween .tarjeta {
+    height: 100%;
+    overflow: hidden;
+    background: #FFFFFF;
+    border: 1px solid var(--gris);
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.halloween .tarjeta:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 5px 12px #10101020;
+}
+
+.halloween .tarjeta img {
+    width: 100%;
+    height: 190px;
+    padding: 16px;
+    object-fit: contain;
+    background: var(--humo);
+}
+
+.halloween .tarjeta .card-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 16px;
+}
+
+.halloween .etiqueta {
+    width: fit-content;
+    padding: 5px 9px;
+    color: var(--carbon);
+    background: var(--beige);
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.halloween .tarjeta h5,
+.halloween .precio {
+    grid-column: 1 / -1;
+    margin: 0;
+}
+
+.halloween .tarjeta h5 {
+    min-height: 44px;
+    color: var(--negro);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.halloween .precio {
+    color: var(--negro);
+    font-size: 19px;
+    font-weight: 700;
+}
+
+/* Botón Detalles */
+.halloween .tarjeta .btn-detalles {
+    background: var(--verde);
+}
+
+.halloween .tarjeta .btn-detalles:hover {
+    background: #006B32;
+}
+
+/* Botón Agregar */
+.halloween .tarjeta .btn-agregar {
+    background: var(--naranja);
+}
+
+.halloween .tarjeta .btn-agregar:hover {
+    background: #C65310;
+}
+
+/* Botones de las tarjetas */
+.halloween .tarjeta .btn {
+    min-height: 40px;
+    padding: 8px 5px;
+    font-size: 14px;
+}
+
+/* Móviles */
+@media (max-width: 576px) {
+    .halloween {
+        padding: 12px;
+    }
+
+    .halloween .tarjeta img {
+        height: 160px;
+    }
+
+    .halloween .tarjeta .card-body {
+        padding: 12px;
+    }
+}

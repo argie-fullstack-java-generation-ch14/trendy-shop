@@ -23,6 +23,19 @@ function resolveLinks(container) {
   });
 }
 
+function resolveModulePaths(container, path) {
+  if (!container) return;
+  const base = new URL(path, APP_BASE);
+
+  ["src", "href"].forEach((attribute) => {
+    container.querySelectorAll(`[${attribute}]`).forEach((element) => {
+      const value = element.getAttribute(attribute);
+      if (!value || /^([a-z]+:|\/\/|#|\/)/i.test(value)) return;
+      element.setAttribute(attribute, new URL(value, base).href);
+    });
+  });
+}
+
 function injectStyles(doc, path) {
   const base = new URL(path, APP_BASE).href;
 
@@ -55,10 +68,19 @@ function injectScripts(doc, path) {
     if (alreadyLoaded) return;
 
     const element = document.createElement("script");
+    Array.from(script.attributes).forEach((attribute) => {
+      if (attribute.name === "src") return;
+      element.setAttribute(attribute.name, attribute.value);
+    });
     element.src = absolute;
     element.async = false;
     document.body.appendChild(element);
   });
+}
+
+function applyMainAttributes(container, main) {
+  if (!container || !main) return;
+  main.classList.forEach((cls) => container.classList.add(cls));
 }
 
 async function renderPartial(selector, name) {
@@ -73,6 +95,13 @@ async function renderPartial(selector, name) {
   }
 }
 
+function initBootstrapComponents(container) {
+  if (!container || typeof bootstrap === "undefined") return;
+  container.querySelectorAll('[data-bs-ride="carousel"]').forEach((carousel) => {
+    bootstrap.Carousel.getOrCreateInstance(carousel);
+  });
+}
+
 async function renderSection(selector, path) {
   const container = document.querySelector(selector);
   if (!container) return;
@@ -80,12 +109,16 @@ async function renderSection(selector, path) {
   try {
     const html = await fetchPage(path);
     const doc = new DOMParser().parseFromString(html, "text/html");
+
     injectStyles(doc, path);
 
     const main = doc.querySelector("main");
+    if (main) applyMainAttributes(container, main);
     container.innerHTML = main ? main.innerHTML : doc.body.innerHTML;
 
+    resolveModulePaths(container, path);
     injectScripts(doc, path);
+    initBootstrapComponents(container);
   } catch (error) {
     container.innerHTML = '<div class="alert alert-danger">No se pudo cargar el contenido.</div>';
     console.error(error);

@@ -1,0 +1,200 @@
+ 
+main.carrito-page {
+  --negro: #101010;
+  --crema: #E0E0D0;
+  --gris: #B0B0B0;
+  --humo: #F0F0F0;
+  --carbon: #404040;
+  background: var(--crema);
+  color: var(--negro);
+  padding: 24px 0 64px;
+}
+ 
+main.carrito-page .container {
+  max-width: 1000px;
+}
+ 
+main.carrito-page h2 {
+  margin: 0 0 8px;
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+ 
+
+#carrito-lista {
+  border-top: 1px solid var(--gris);
+}
+ 
+#carrito-lista > * {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  column-gap: 28px;
+  align-content: start;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--gris);
+}
+ 
+
+#carrito-lista > * > img {
+  grid-column: 1;
+  grid-row: 1 / span 8;
+  width: 180px;
+  height: 240px;
+  object-fit: cover;
+  background: var(--humo);
+  border: 1px solid var(--gris);
+  color: transparent;
+  font-size: 0;
+}
+ 
+#carrito-lista > * > :not(img) {
+  grid-column: 2;
+}
+ 
+#carrito-lista h1,
+#carrito-lista h2,
+#carrito-lista h3,
+#carrito-lista h4,
+#carrito-lista h5 {
+  margin: 0 0 4px;
+  font-size: 17px;
+  font-weight: 500;
+}
+ 
+#carrito-lista p {
+  margin: 0 0 6px;
+  color: var(--carbon);
+  font-size: 14px;
+}
+ 
+
+#carrito-lista button {
+  min-width: 32px;
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid var(--gris);
+  border-radius: 0;
+  background: var(--humo);
+  color: var(--negro);
+  font-size: 14px;
+  cursor: pointer;
+}
+ 
+#carrito-lista button:hover {
+  background: var(--negro);
+  border-color: var(--negro);
+  color: var(--humo);
+}
+ 
+#carrito-lista > * > button:last-child {
+  justify-self: start;
+  margin-top: 10px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--carbon);
+  font-size: 13px;
+  text-decoration: underline;
+}
+ 
+#carrito-lista > * > button:last-child:hover {
+  background: none;
+  color: var(--negro);
+}
+ 
+
+.carrito__cupon {
+  margin-top: 28px;
+}
+ 
+.carrito__cupon .form-control {
+  border: 1px solid var(--gris);
+  border-radius: 0;
+  background: #fff;
+  box-shadow: none;
+}
+ 
+.carrito__cupon .form-control:focus {
+  border-color: var(--negro);
+}
+ 
+main.carrito-page .btn-dark {
+  padding: 8px 24px;
+  border-radius: 0;
+  background: var(--negro);
+  border-color: var(--negro);
+}
+ 
+main.carrito-page .btn-dark:hover {
+  background: var(--carbon);
+  border-color: var(--carbon);
+}
+ 
+#mensaje-cupon {
+  min-height: 20px;
+  color: var(--carbon);
+  font-size: 13px;
+}
+ 
+
+.carrito__resumen {
+  max-width: 380px;
+  margin-left: auto;
+  padding: 24px;
+  background: var(--humo);
+  border: 1px solid var(--gris);
+}
+ 
+.carrito__resumen p {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 10px;
+  color: var(--carbon);
+}
+ 
+.carrito__resumen p:nth-of-type(3) {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--gris);
+  color: var(--negro);
+  font-size: 18px;
+}
+ 
+#btn-vaciar {
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid var(--negro);
+  border-radius: 0;
+  background: transparent;
+  color: var(--negro);
+}
+ 
+#btn-vaciar:hover {
+  background: var(--negro);
+  color: var(--humo);
+}
+ 
+
+main.carrito-page button:focus-visible,
+main.carrito-page input:focus-visible {
+  outline: 2px solid var(--negro);
+  outline-offset: 2px;
+}
+ 
+/* movil */
+@media (max-width: 600px) {
+  #carrito-lista > * {
+    grid-template-columns: 110px 1fr;
+    column-gap: 16px;
+  }
+  #carrito-lista > * > img {
+    width: 110px;
+    height: 146px;
+  }
+  .carrito__resumen {
+    max-width: none;
+  }
+}
+ 

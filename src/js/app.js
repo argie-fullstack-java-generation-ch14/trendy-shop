@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   await renderPartial("#footer", "footer.html");
 
   const routes = {
+    "#inicio": "inicio/index.html",
     "#catalogo": "catalogo/index.html",
     "#crea-tu-lumina": "contactanos/index.html",
     "#about-us": "quienes-somos/index.html",

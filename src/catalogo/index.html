@@ -15,11 +15,26 @@
     <h1 class="text-center mb-4">TrendyShop</h1>
   </header>
 
-  <main>
-    <h2>Catálogo</h2>
-    <div id="productos" class="container row g-3">
-    </div>
-  </main>
+  <main class="container my-4">
+        <section>
+            <h4>Buscar productos</h4>
+            <div>
+                <div>
+                    <label for="categoria">Categoría</label>
+                    <select id="categoria" class="form-select">
+                        <option value="">Todas las categorías</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="buscar">Nombre del producto o categoria</label>
+                    <input type="search" id="buscar" placeholder="Escribe para buscar...">
+                </div>
+            </div>
+        </section>
+
+        <div id="productos" class="row g-3"></div>
+
+    </main>
 
   <footer id="footer" class="py-4 mt-5"></footer>
 
@@ -28,7 +43,7 @@
   <script src="../js/app.js"></script>
   <script src="../js/productos.js"></script>
   <script src="../js/carrito.js"></script>
-  <script type="module" src="catalogo.js"></script>
+  <script type="module" src="./funcionalidades.js"></script>
 </body>
 
 </html>

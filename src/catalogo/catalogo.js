@@ -1,20 +1,25 @@
-import { obtenerProductos } from "../services/productService.js";
-
-async function mostrarProductos() {
+export function mostrarProductos(productos) {
     const contenedor = document.getElementById("productos");
-    const productos = await obtenerProductos();
+    contenedor.innerHTML = "";
 
-    for (const producto of productos) {
+    if (productos.length === 0) {
+        contenedor.innerHTML = "<p>No hay productos.</p>";
+        return;
+    }
+
+    for (const p of productos) {
         contenedor.innerHTML += `
-        <div class="card" style="width: 18rem;">
-            <img src="${producto.thumbnail}" class="card-img-top" alt="${producto.title}">
-                <div class="card-body">
-                    <h5 class="card-title">${producto.title}</h5>
-                    <p class="card-text">${producto.price}</p>
-                    <a href="#" class="btn btn-primary">Agregar a Carrito</a>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card h-100">
+                    <img src="${p.thumbnail}" class="card-img-top" alt="${p.title}">
+                    <div class="card-body">
+                        <h5>${p.title}</h5>
+                        <p>${p.category}</p>
+                        <p>Precio: $${p.price}</p>
+                        <button class="btn btn-primary" data-detalles="${p.id}">Detalles</button>
+                        <button class="btn btn-secondary" data-carrito="${p.id}">Agregar al carrito</button>
+                    </div>
                 </div>
             </div>`;
     }
 }
-
-mostrarProductos();

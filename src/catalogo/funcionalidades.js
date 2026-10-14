@@ -1,59 +1,166 @@
 import { obtenerProductos } from "../services/productService.js";
-import { mostrarProductos } from "./catalogo.js";
+import { mostrarProductos, mostrarDetalles } from "./catalogo.js";
 import { agregarProducto } from "../services/cartService.js";
 
 const productos = await obtenerProductos();
-const buscar = document.getElementById("buscar");
-const btnBuscar = document.getElementById("btnBuscar");
+
+const buscador = document.getElementById("buscar");
+const botonBuscar = document.getElementById("btnBuscar");
 const categorias = document.querySelectorAll(".categoria");
-const contenedor = document.getElementById("productos");
-const verMas = document.getElementById("verMas");
-const verMenos = document.getElementById("verMenos");
+const botonVerMas = document.getElementById("verMas");
+const botonVerMenos = document.getElementById("verMenos");
+
+const categoriasPermitidas = [
+    "mens-shirts",
+    "mens-shoes",
+    "womens-dresses",
+    "womens-shoes",
+    "beauty",
+    "womens-jewellery",
+    "mens-watches"
+];
+
+const nombresCategorias = {
+    "mens-shirts": "Camisas de hombre",
+    "mens-shoes": "Zapatos de hombre",
+    "womens-dresses": "Vestidos de mujer",
+    "womens-shoes": "Zapatos de mujer",
+    "beauty": "Belleza",
+    "womens-jewellery": "Joyería de mujer",
+    "mens-watches": "Relojes de hombre"
+};
+
+const productosValidos = productos.filter(producto =>
+    categoriasPermitidas.includes(producto.category)
+);
 
 let cantidad = 8;
 
-function filtrar() {
-    const texto = buscar.value.toLowerCase();
-    const seleccionadas = [...categorias]
-        .filter(c => c.checked)
-        .map(c => c.value);
-
-    const resultado = productos.filter(p =>
-        (!seleccionadas.length || seleccionadas.includes(p.category)) &&
-        p.title.toLowerCase().includes(texto)
-    );
-
-    mostrarProductos(resultado.slice(0, cantidad));
-
-    verMenos.disabled = cantidad <= 8;
-    verMas.disabled = cantidad >= resultado.length;
+// Traducir el nombre de la categoría para mostrarlo.
+function traducir(producto) {
+    return {
+        ...producto,
+        category: nombresCategorias[producto.category]
+    };
 }
 
-categorias.forEach(c => c.addEventListener("change", filtrar));
-btnBuscar.addEventListener("click", filtrar);
+// Obtener productos según la búsqueda y los filtros.
+function obtenerProductosFiltrados() {
+    const texto = buscador.value.toLowerCase().trim();
 
-buscar.addEventListener("keydown", e => {
-    if (e.key === "Enter") filtrar();
+    const seleccionadas = [...categorias]
+        .filter(categoria => categoria.checked)
+        .map(categoria => categoria.value);
+
+    return productosValidos.filter(producto => {
+        const coincideCategoria =
+            seleccionadas.length === 0 ||
+            seleccionadas.includes(producto.category);
+
+        const coincideNombre =
+            producto.title.toLowerCase().includes(texto);
+
+        return coincideCategoria && coincideNombre;
+    });
+}
+
+// Mostrar los productos y actualizar la paginación.
+function filtrarProductos() {
+    const resultado = obtenerProductosFiltrados();
+
+    mostrarProductos(
+        resultado.slice(0, cantidad).map(traducir)
+    );
+
+    botonVerMenos.disabled = cantidad <= 8;
+    botonVerMas.disabled = cantidad >= resultado.length;
+}
+
+// Mostrar cuatro camisas y cuatro vestidos al iniciar.
+function iniciarCatalogo() {
+    categorias.forEach(categoria => {
+        categoria.checked = [
+            "mens-shirts",
+            "womens-dresses"
+        ].includes(categoria.value);
+    });
+
+    const camisas = productosValidos
+        .filter(producto => producto.category === "mens-shirts")
+        .slice(0, 4);
+
+    const vestidos = productosValidos
+        .filter(producto => producto.category === "womens-dresses")
+        .slice(0, 4);
+
+    const iniciales = [...camisas, ...vestidos];
+
+    mostrarProductos(iniciales.map(traducir));
+
+    const totalSeleccionados = obtenerProductosFiltrados().length;
+
+    botonVerMenos.disabled = true;
+    botonVerMas.disabled = totalSeleccionados <= 8;
+}
+
+// Buscar al pulsar el botón.
+botonBuscar.addEventListener("click", () => {
+    cantidad = 8;
+    filtrarProductos();
 });
 
-verMas.addEventListener("click", () => {
+// Buscar mientras se escribe.
+buscador.addEventListener("input", () => {
+    cantidad = 8;
+    filtrarProductos();
+});
+
+// Aplicar filtros por categoría.
+categorias.forEach(categoria => {
+    categoria.addEventListener("change", () => {
+        cantidad = 8;
+        filtrarProductos();
+    });
+});
+
+// Mostrar más productos.
+botonVerMas.addEventListener("click", () => {
     cantidad += 8;
-    filtrar();
+    filtrarProductos();
 });
 
-verMenos.addEventListener("click", () => {
-    cantidad -= 8;
-    filtrar();
+// Mostrar menos productos.
+botonVerMenos.addEventListener("click", () => {
+    cantidad = Math.max(8, cantidad - 8);
+    filtrarProductos();
 });
 
-// Agregar al carrito
-contenedor?.addEventListener("click", e => {
-    const btn = e.target.closest("[data-carrito]");
-    if (!btn) return;
+// Controlar los botones de detalles y carrito.
+document.addEventListener("click", evento => {
+    const botonDetalles = evento.target.closest("[data-detalles]");
+    const botonCarrito = evento.target.closest("[data-carrito]");
 
-    const producto = productos.find(p => p.id === Number(btn.dataset.carrito));
+    if (!botonDetalles && !botonCarrito) {
+        return;
+    }
 
-    if (producto) {
+    const idProducto = Number(
+        botonDetalles
+            ? botonDetalles.dataset.detalles
+            : botonCarrito.dataset.carrito
+    );
+
+    const producto = productosValidos.find(
+        producto => producto.id === idProducto
+    );
+
+    if (!producto) {
+        return;
+    }
+
+    if (botonDetalles) {
+        mostrarDetalles(traducir(producto));
+    } else {
         agregarProducto({
             id: producto.id,
             nombre: producto.title,
@@ -63,4 +170,5 @@ contenedor?.addEventListener("click", e => {
     }
 });
 
-filtrar();
+// Iniciar el catálogo.
+iniciarCatalogo();

@@ -1,0 +1,296 @@
+:root {
+    --color-primary: #101010;
+    --color-background: #E0E0D0;
+    --color-surface: #F0F0F0;
+    --color-gray: #B0B0B0;
+    --color-charcoal: #404040;
+}
+/*boton ver coleccion*/
+.btn-explorar {
+    display: inline-block;
+    background-color: #101010;
+    color: #F0F0F0;
+    padding: 12px 28px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 1px solid #101010;
+    border-radius: 0;
+    transition: all 0.3s ease;
+}
+/* Efecto al pasar el cursor */
+.btn-explorar:hover {
+    background-color: transparent;
+    color: #101010;
+    border-color: #101010;
+}
+/*hero h1*/
+.hero-contenido {
+    animation: aparecer 0.8s ease-out both;
+}
+.hero-etiqueta {
+    display: block;
+    letter-spacing: 3px;
+    font-size: 12px;
+    margin-bottom: 20px;
+    color: #404040;
+}
+.hero-contenido h1 {
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    font-weight: 800;
+    line-height: 0.95;
+    color: #101010;
+    margin-bottom: 24px;
+}
+.hero-contenido p {
+    color: #404040;
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.inicio-hero {
+    background-color: #E0E0D0;
+    padding: 50px 30px;
+}
+.inicio-hero .row {
+    row-gap: 30px;
+}
+@media (max-width: 991.98px) {
+    .inicio-hero {
+        padding: 35px 20px;
+    }
+}
+/* Carrusel de imágenes */
+.hero-imagen {
+    overflow: hidden;
+}
+.hero-imagen .carousel {
+    width: 100%;
+}
+.hero-imagen .carousel-item img {
+    display: block;
+    width: 100%;
+    height: 470px;
+    object-fit: cover;
+    object-position: center;
+}
+/* Transición suave entre imágenes */
+.hero-imagen .carousel-fade .carousel-item {
+    transition: opacity 1s ease-in-out;
+}
+/* Diseño para celulares y tabletas */
+@media (max-width: 991.98px) {
+    .hero-imagen {
+        margin-top: 35px;
+    }
+    .hero-imagen .carousel-item img {
+        height: 350px;
+    }
+}
+/*Presentación*/
+.inicio-presentacion {
+    background-color: var(--color-surface);
+    padding: 80px 20px;
+    margin-top: 60px;
+}
+.presentacion-texto {
+    max-width: 750px;
+    margin: 0 auto;
+    text-align: center;
+    animation: aparecer 0.8s ease-out both;
+}
+.presentacion-etiqueta {
+    display: block;
+    color: var(--color-charcoal);
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+.presentacion-texto h2 {
+    color: var(--color-primary);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 24px;
+}
+.presentacion-texto p {
+    color: var(--color-charcoal);
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 650px;
+    margin: 0 auto 30px;
+}
+/* Ajustes para celulares */
+@media (max-width: 576px) {
+    .inicio-presentacion {
+        padding: 50px 20px;
+        margin-top: 35px;
+    }
+    .presentacion-texto h2 {
+        font-size: 2rem;
+    }
+    .presentacion-texto p {
+        font-size: 15px;
+    }
+}
+/*Productos destacados*/
+.inicio-destacados {
+    padding: 80px 0;
+}
+.destacados-encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 24px;
+    margin-bottom: 35px;
+}
+.destacados-etiqueta {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--color-charcoal);
+}
+.destacados-encabezado h2 {
+    color: var(--color-primary);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    margin: 15px 0;
+}
+.destacados-encabezado p {
+    color: var(--color-charcoal);
+    margin-bottom: 0;
+}
+.enlace-catalogo {
+    color: var(--color-primary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-primary);
+    padding-bottom: 5px;
+    white-space: nowrap;
+}
+.producto-card {
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+.producto-card:hover {
+    transform: translateY(-6px);
+}
+.producto-imagen {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-surface);
+}
+.producto-imagen img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.producto-card:hover .producto-imagen img {
+    transform: scale(1.04);
+}
+.producto-etiqueta {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    padding: 7px 10px;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+.producto-info {
+    padding: 18px 0;
+}
+.producto-info h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+.producto-info p {
+    font-size: 14px;
+    color: var(--color-charcoal);
+    margin-bottom: 10px;
+}
+.producto-precio {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+@media (max-width: 576px) {
+    .inicio-destacados {
+        padding: 50px 0;
+    }
+    .destacados-encabezado {
+        align-items: start;
+        flex-direction: column;
+    }
+    .producto-imagen img {
+        height: 320px;
+    }
+}
+/*Beneficios*/
+.inicio-beneficios {
+    background-color: var(--color-background);
+    padding: 70px 20px;
+    margin-top: 50px;
+}
+.beneficios-encabezado {
+    text-align: center;
+    margin-bottom: 45px;
+}
+.beneficios-encabezado span {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--color-charcoal);
+}
+.beneficios-encabezado h2 {
+    color: var(--color-primary);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    margin-top: 15px;
+}
+.beneficio-card {
+    height: 100%;
+    padding: 30px 20px;
+    text-align: center;
+    background-color: var(--color-surface);
+    transition: transform 0.3s ease;
+}
+.beneficio-card:hover {
+    transform: translateY(-5px);
+}
+.beneficio-icono {
+    font-size: 32px;
+    color: var(--color-primary);
+    margin-bottom: 18px;
+}
+.beneficio-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 12px;
+}
+.beneficio-card p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--color-charcoal);
+    margin-bottom: 0;
+}
+@media (max-width: 576px) {
+    .inicio-beneficios {
+        padding: 50px 15px;
+    }
+    .beneficios-encabezado {
+        margin-bottom: 30px;
+    }
+}

@@ -1,3 +1,5 @@
+// import { agregarProducto } from "../services/cartService.js";
+
 export function mostrarProductos(productos) {
     const contenedor = document.getElementById("productos");
     contenedor.innerHTML = "";
@@ -7,19 +9,21 @@ export function mostrarProductos(productos) {
         return;
     }
 
-    for (const p of productos) {
+    for (const producto of productos) {
         contenedor.innerHTML += `
             <div class="col-12 col-sm-6 col-lg-3">
-                <div class="card h-100">
-                    <img src="${p.thumbnail}" class="card-img-top" alt="${p.title}">
+                <div class="card tarjeta ${producto.category}" h-100">
+                    <img src="${producto.thumbnail}" class="card-img-top" alt="${producto.title}">
                     <div class="card-body">
-                        <h5>${p.title}</h5>
-                        <p>${p.category}</p>
-                        <p>Precio: $${p.price}</p>
-                        <button class="btn btn-primary" data-detalles="${p.id}">Detalles</button>
-                        <button class="btn btn-secondary" data-carrito="${p.id}">Agregar al carrito</button>
+                        <h5>${producto.title}</h5>
+                        <p>${producto.category}</p>
+                        <p>Precio: $${producto.price}</p>
+                        <button class="btn btn-detalles" data-detalles="${producto.id}">Detalles</button>
+                        <button class="btn btn-agregar" data-carrito="${producto.id}">Agregar al carrito</button>
                     </div>
                 </div>
             </div>`;
     }
 }
+
+// agregarProducto({ id: producto.id, nombre: producto.title, precio: producto.price, imagen: producto.image });

@@ -15,26 +15,70 @@
     <h1 class="text-center mb-4">TrendyShop</h1>
   </header>
 
-  <main class="container my-4">
-        <section>
-            <h4>Buscar productos</h4>
-            <div>
-                <div>
-                    <label for="categoria">Categoría</label>
-                    <select id="categoria" class="form-select">
-                        <option value="">Todas las categorías</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="buscar">Nombre del producto o categoria</label>
-                    <input type="search" id="buscar" placeholder="Escribe para buscar...">
-                </div>
-            </div>
-        </section>
+  <main class="container my-4 halloween">
+    <section class="filtros p-3 p-md-4 mb-4 rounded-4">
+      <h4 class="mb-3">🎃 Buscar productos</h4>
+      <h6 class="fw-bold mb-3">Categorías</h6>
+      <div class="row g-2 mb-4">
+        <div class="col-6 col-md-4">
+          <label class="categoria-item"><input type="checkbox" class="form-check-input categoria" value="mens-shirts">Camisas de hombre</label>
+        </div>
 
-        <div id="productos" class="row g-3"></div>
+        <div class="col-6 col-md-4">
+          <label class="categoria-item"><input type="checkbox" class="form-check-input categoria" value="mens-shoes">Zapatos de hombre</label>
+        </div>
 
-    </main>
+        <div class="col-6 col-md-4">
+          <label class="categoria-item"><input type="checkbox" class="form-check-input categoria" value="womens-dresses">Vestidos de mujer</label>
+        </div>
+
+        <div class="col-6 col-md-4">
+          <label class="categoria-item">
+            <input type="checkbox" class="form-check-input categoria" value="womens-shoes">Zapatos de mujer</label>
+        </div>
+
+        <div class="col-6 col-md-4">
+          <label class="categoria-item"><input type="checkbox" class="form-check-input categoria" value="beauty">Belleza</label>
+        </div>
+
+        <div class="col-6 col-md-4">
+          <label class="categoria-item"><input type="checkbox" class="form-check-input categoria" value="skin-care">Cuidado de la piel
+          </label>
+        </div>
+
+        <div class="col-6 col-md-4">
+          <label class="categoria-item"><input type="checkbox" class="form-check-input categoria" value="womens-jewellery">Joyería de mujer</label>
+        </div>
+
+        <div class="col-6 col-md-4">
+          <label class="categoria-item"><input type="checkbox" class="form-check-input categoria" value="mens-watches">Relojes de hombre</label>
+        </div>
+
+        <div class="col-6 col-md-4">
+          <label class="categoria-item"><input type="checkbox" class="form-check-input categoria" value="sports-accessories">Accesorios deportivos</label>
+        </div>
+
+        <div class="col-6 col-md-4">
+          <label class="categoria-item"><input type="checkbox" class="form-check-input categoria" value="mobile-accessories">Accesorios tecnológicos
+          </label>
+        </div>
+
+        <div class="col-6 col-md-4">
+          <label class="categoria-item"><input type="checkbox" class="form-check-input categoria" value="motorcycle">Motocicletas</label>
+        </div>
+      </div>
+
+      <label for="buscar" class="form-label fw-semibold">Nombre del producto</label>
+
+      <div class="input-group">
+        <input type="search" id="buscar" class="form-control" placeholder="¿Qué estás buscando?">
+        <button id="btnBuscar" class="btn btn-buscar px-4">Buscar</button>
+      </div>
+    </section>
+
+    <div id="productos" class="row g-3"></div>
+
+  </main>
 
   <footer id="footer" class="py-4 mt-5"></footer>
 
@@ -44,6 +88,8 @@
   <script src="../js/productos.js"></script>
   <script src="../js/carrito.js"></script>
   <script type="module" src="./funcionalidades.js"></script>
+  <script type="module" src="carrito.js"></script>
+  <script type="module" src="../js/contador.js"></script>
 </body>
 
 </html>

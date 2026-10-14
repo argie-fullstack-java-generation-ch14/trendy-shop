@@ -1,5 +1,6 @@
 import { obtenerProductos } from "../services/productService.js";
 import { mostrarProductos } from "./catalogo.js";
+import { agregarProducto } from "../services/cartService.js";
 
 const productos = await obtenerProductos();
 const buscar = document.getElementById("buscar");
@@ -22,5 +23,23 @@ function filtrar() {
 
 categorias.forEach(c => c.addEventListener("change", filtrar));
 btnBuscar.addEventListener("click", filtrar);
+
+// Delegación para agregar al carrito
+document.getElementById("productos")?.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-carrito]");
+    if (!btn) return;
+
+    const id = Number(btn.dataset.carrito);
+    const producto = productos.find((p) => p.id === id);
+
+    if (producto) {
+        agregarProducto({
+            id: producto.id,
+            nombre: producto.title,
+            precio: producto.price,
+            imagen: producto.thumbnail,
+        });
+    }
+});
 
 mostrarProductos(productos);

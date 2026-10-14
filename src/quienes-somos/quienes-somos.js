@@ -33,38 +33,38 @@ const aboutSectionsData = [
 
 const teamMembersData = [
   {
-    name: "Gabriela Cardona",
-    role: "Coordinadora de Marketing",
-    photo: "https://res.cloudinary.com/dvvwfb2tr/image/upload/v1792002129/generation/TRENDY-SHOP/Gabriela_h7sloz.png",
-    linkedin: "#"
-  },
-  {
     name: "Alan Giraldo",
-    role: "Coordinadora de Marketing",
+    role: "CEO - Chief Executive Officer",
     photo: "https://res.cloudinary.com/dvvwfb2tr/image/upload/v1792002129/generation/TRENDY-SHOP/alan_l93oc5.png",
     linkedin: "#"
   },
   {
+    name: "Gabriela Cardona",
+    role: "CTO - Chief Technology Officer",
+    photo: "https://res.cloudinary.com/dvvwfb2tr/image/upload/v1792002129/generation/TRENDY-SHOP/Gabriela_h7sloz.png",
+    linkedin: "#"
+  },
+  {
     name: "Nayant Gonzalez",
-    role: "Coordinador de Marketing",
+    role: "CMO - Chief Marketing Officer",
     photo: "https://res.cloudinary.com/dvvwfb2tr/image/upload/v1792002794/generation/TRENDY-SHOP/naya_ngakmp.png",
     linkedin: "#"
   },
   {
     name: "Andrés Satoba",
-    role: "Coordinadora de Marketing",
+    role: "COO - Chief Operating Officer",
     photo: "https://res.cloudinary.com/dvvwfb2tr/image/upload/v1792003934/generation/TRENDY-SHOP/andres_ht6fyq.png",
     linkedin: "#"
   },
   {
     name: "Stefanía Redondo",
-    role: "Coordinadora de Marketing",
+    role: "CFO - Chief Financial Officer",
     photo: "https://res.cloudinary.com/dvvwfb2tr/image/upload/v1792005295/generation/TRENDY-SHOP/stef_mjqxts.png",
     linkedin: "#"
   },
   {
     name: "Argie Rincón",
-    role: "Coordinadora de Marketing",
+    role: "CIO - Chief Information Officer",
     photo: "https://res.cloudinary.com/dvvwfb2tr/image/upload/v1792002129/generation/TRENDY-SHOP/argie_caricatura_easomo.png",
     linkedin: "#"
   }

@@ -1,7 +1,293 @@
 :root {
-  --color-negro-profundo: #101010;
-  --color-blanco-calido: #E0E0D0;
-  --color-gris-medio: #B0B0B0;
-  --color-blanco-humo: #F0F0F0;
-  --color-gris-carbon: #404040;
+  --color-negro-profundo: #171513;
+  --color-blanco-calido: #F6F4F1;
+  --color-gris-medio: #A4A19E;
+  --color-blanco-humo: #FFFFFF;
+  --color-gris-carbon: #5B5350;
 }
+
+/* Estilo general */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-blanco-calido);
+  color: var(--color-negro-profundo);
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Header */
+#header {
+  background-color: var(--color-blanco-calido);
+  border-bottom: 1px solid #E5E2DF;
+}
+
+#header .navbar {
+  padding: 16px 0;
+}
+
+#header .navbar-brand {
+  color: var(--color-negro-profundo);
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+#header .nav-link {
+  color: var(--color-negro-profundo);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+#header .nav-link:hover,
+#header .nav-link:focus {
+  color: var(--color-gris-medio);
+}
+
+#header .navbar-toggler {
+  border-color: var(--color-gris-medio);
+}
+
+#header .navbar-toggler:focus {
+  box-shadow: none;
+}
+
+/* Footer */
+#footer {
+  background-color: var(--color-negro-profundo);
+  color: var(--color-blanco-humo);
+}
+
+#footer h5 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+#footer p,
+#footer a {
+  color: var(--color-gris-medio);
+  font-size: 0.85rem;
+}
+
+#footer a:hover {
+  color: var(--color-blanco-humo);
+}
+
+#footer hr {
+  border-color: var(--color-gris-carbon);
+  opacity: 1;
+}
+
+/* Footer Trendy Shop */
+#footer {
+  margin-top: 12px !important;
+  padding: 0 !important;
+  background-color: #111111;
+  color: #F6F4F1;
+  font-family: "Montserrat", "Helvetica Neue", sans-serif;
+  box-shadow: 0 -5px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* Contenedor principal */
+#footer > .container {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 10px 20px 8px;
+}
+
+/* Columnas */
+#footer .row {
+  row-gap: 6px;
+}
+
+#footer .col-md-4 {
+  margin-bottom: 6px !important;
+}
+
+/* Títulos alineados a la izquierda */
+#footer h5 {
+  margin-bottom: 7px;
+  text-align: left;
+  font-family: "Montserrat", "Helvetica Neue", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  color: #F6F4F1;
+}
+
+/* Textos y enlaces */
+#footer p,
+#footer a {
+  font-family: "Montserrat", "Helvetica Neue", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  text-align: left;
+}
+
+/* Párrafos */
+#footer .col-md-4 p {
+  margin-bottom: 3px !important;
+  color: #C4BFBB;
+}
+
+/* Lista de enlaces */
+#footer .col-md-4 ul {
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+  text-align: left;
+}
+
+/* Enlaces alineados a la izquierda */
+#footer .col-md-4 a {
+  display: block;
+  width: fit-content;
+  margin: 0 0 3px;
+  color: #C4BFBB;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+/* Efecto al pasar el cursor */
+#footer a:hover {
+  color: #FFFFFF;
+}
+
+/* Línea divisoria */
+#footer hr {
+  margin: 6px 0;
+  border-color: #3A3A3A;
+  opacity: 1;
+}
+
+/* Derechos reservados */
+#footer .text-center {
+  margin-bottom: 0 !important;
+  text-align: center !important;
+  font-family: "Montserrat", "Helvetica Neue", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.4px;
+  line-height: 1.4;
+  color: #C4BFBB;
+}
+
+/* Adaptación para celulares */
+@media (max-width: 767px) {
+  #footer > .container {
+    padding: 10px 16px 8px;
+  }
+
+  #footer .col-md-4 {
+    margin-bottom: 8px !important;
+  }
+
+  #footer .text-center {
+    font-size: 0.7rem;
+  }
+}
+
+/* Símbolo de Trendy Shop como marca de agua */
+#footer {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Símbolo decorativo a la derecha */
+#footer::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 4%;
+  transform: translateY(-50%);
+  width: 190px;
+  height: 190px;
+  background-image: url("../assets/images/Logo/Trendy-\ x.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.10;
+  pointer-events: none;
+}
+
+/* Mantener el contenido por encima del símbolo */
+#footer > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Header */
+#header {
+  background-color: #111111;
+  border-bottom: 1px solid #3A3A3A;
+  font-family: "Montserrat", "Helvetica Neue", sans-serif;
+}
+
+#header .navbar {
+  min-height: 60px;
+  padding: 4px 0;
+  background-color: #111111;
+}
+
+#header .navbar-brand {
+  color: #FFFFFF;
+  font-family: "Montserrat", "Helvetica Neue", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-right: 30px;
+}
+
+#header .navbar-brand:hover,
+#header .navbar-brand:focus {
+  color: #F6F4F1;
+}
+
+#header .navbar-nav {
+  align-items: center;
+  gap: 18px;
+}
+
+#header .nav-link {
+  padding: 7px 0;
+  color: #FFFFFF;
+  font-family: "Montserrat", "Helvetica Neue", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  transition: color 0.3s ease;
+}
+
+#header .nav-link:hover,
+#header .nav-link:focus {
+  color: #A4A19E;
+}
+
+#header .navbar-toggler {
+  border: 1px solid #FFFFFF;
+  padding: 4px 7px;
+}
+
+#header .navbar-toggler-icon {
+  filter: invert(1);
+}
+
+#header .navbar-toggler:focus {
+  box-shadow: none;
+}
+

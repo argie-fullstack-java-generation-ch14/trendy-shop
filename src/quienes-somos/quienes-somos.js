@@ -1,34 +1,40 @@
-const aboutSectionsData = [
-  {
-    title: "Nuestra Misión",
-    text: "Ofrecer moda accesible, juvenil y vanguardista a todo Colombia, combinando calidad excepcional, transparencia en los envíos y un servicio al cliente humano y cercano que garantice la mejor experiencia de compra online.",
-    image1: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=800",
-    image2: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=600",
-    image1Alt: "Diseño y tendencias de moda",
-    image2Alt: "Detalle de telas y calidad",
-    image1Width: 8,
-    image2Width: 4,
-    bullets: [
-      "Impulsar la moda sostenible y el talento local.",
-      "Innovación constante en nuestro catálogo de tendencias.",
-      "Enfoque 100% centrado en la satisfacción del cliente.",
-      "Construir una comunidad transparente y confiable."
-    ]
-  },
-  {
-    title: "Nuestra Visión",
-    text: "En Trendy Shop rediseñamos la experiencia de compra digital. Para el 2030, buscamos posicionarnos como la plataforma de moda digital número uno en velocidad de entrega, transparencia y logística sostenible.",
-    image1: "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=600",
-    image2: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=800",
-    image1Alt: "Estilo urbano juvenil",
-    image2Alt: "Vestuario y showroom",
-    image1Width: 5,
-    image2Width: 7,
-    bullets: [
-      "Inspirar la moda moderna e inclusiva para todos.",
-      "Liderar la logística rápida con empaques ecológicos."
-    ]
-  }
+const catalogUrl = new URL(
+  "../catalogo/index.html",
+  document.currentScript
+    ? new URL(".", document.currentScript.src)
+    : new URL(".", window.location.href)
+).href;
+
+const aboutSectionsData = [{
+  title: "Nuestra Misión",
+  text: "Ofrecer moda accesible, juvenil y vanguardista a todo Colombia, combinando calidad excepcional, transparencia en los envíos y un servicio al cliente humano y cercano que garantice la mejor experiencia de compra online.",
+  image1: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=800",
+  image2: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=600",
+  image1Alt: "Diseño y tendencias de moda",
+  image2Alt: "Detalle de telas y calidad",
+  image1Width: 8,
+  image2Width: 4,
+  bullets: [
+    "Impulsar la moda sostenible y el talento local.",
+    "Innovación constante en nuestro catálogo de tendencias.",
+    "Enfoque 100% centrado en la satisfacción del cliente.",
+    "Construir una comunidad transparente y confiable."
+  ]
+},
+{
+  title: "Nuestra Visión",
+  text: "En Trendy Shop rediseñamos la experiencia de compra digital. Para el 2030, buscamos posicionarnos como la plataforma de moda digital número uno en velocidad de entrega, transparencia y logística sostenible.",
+  image1: "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=600",
+  image2: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=800",
+  image1Alt: "Estilo urbano juvenil",
+  image2Alt: "Vestuario y showroom",
+  image1Width: 5,
+  image2Width: 7,
+  bullets: [
+    "Inspirar la moda moderna e inclusiva para todos.",
+    "Liderar la logística rápida con empaques ecológicos."
+  ]
+}
 ];
 
 const teamMembersData = [
@@ -36,37 +42,37 @@ const teamMembersData = [
     name: "Alan Giraldo",
     role: "CEO - Chief Executive Officer",
     photo: "https://res.cloudinary.com/dvvwfb2tr/image/upload/v1792002129/generation/TRENDY-SHOP/alan_l93oc5.png",
-    linkedin: "#"
+    linkedin: "https://www.linkedin.com/in/alan-melo-giraldo/?isSelfProfile=true"
   },
   {
     name: "Gabriela Cardona",
     role: "CTO - Chief Technology Officer",
     photo: "https://res.cloudinary.com/dvvwfb2tr/image/upload/v1792002129/generation/TRENDY-SHOP/Gabriela_h7sloz.png",
-    linkedin: "#"
+    linkedin: "http://www.linkedin.com/in/gabriela-cardona14"
   },
   {
     name: "Nayant Gonzalez",
     role: "CMO - Chief Marketing Officer",
     photo: "https://res.cloudinary.com/dvvwfb2tr/image/upload/v1792002794/generation/TRENDY-SHOP/naya_ngakmp.png",
-    linkedin: "#"
+    linkedin: "https://www.linkedin.com/in/nayagonzalezd/"
   },
   {
     name: "Andrés Satoba",
     role: "COO - Chief Operating Officer",
     photo: "https://res.cloudinary.com/dvvwfb2tr/image/upload/v1792003934/generation/TRENDY-SHOP/andres_ht6fyq.png",
-    linkedin: "#"
+    linkedin: "https://www.linkedin.com/in/andres-satoba-castro-a14696174/"
   },
   {
     name: "Stefanía Redondo",
     role: "CFO - Chief Financial Officer",
     photo: "https://res.cloudinary.com/dvvwfb2tr/image/upload/v1792005295/generation/TRENDY-SHOP/stef_mjqxts.png",
-    linkedin: "#"
+    linkedin: "http://www.linkedin.com/in/stefaniaredondo"
   },
   {
     name: "Argie Rincón",
     role: "CIO - Chief Information Officer",
     photo: "https://res.cloudinary.com/dvvwfb2tr/image/upload/v1792002129/generation/TRENDY-SHOP/argie_caricatura_easomo.png",
-    linkedin: "#"
+    linkedin: "https://www.linkedin.com/in/argierincon/"
   }
 ];
 
@@ -86,10 +92,10 @@ function createAboutSectionTemplate(section, index) {
     <section class="row align-items-center mb-5 pb-lg-4 ${reverseClass}">
       <div class="col-lg-6 mb-4 mb-lg-0">
         <div class="row g-3 align-items-center">
-          <div class="col-${section.image1Width}">
+          <div class="col-12 col-sm-${section.image1Width}">
             <img src="${section.image1}" class="img-fluid img-rounded-custom-1 shadow-sm w-100" alt="${section.image1Alt}">
           </div>
-          <div class="col-${section.image2Width}">
+          <div class="col-12 col-sm-${section.image2Width}">
             <img src="${section.image2}" class="img-fluid img-rounded-custom-2 shadow-sm w-100" alt="${section.image2Alt}">
           </div>
         </div>
@@ -111,11 +117,11 @@ function createHistorySectionTemplate() {
     <section class="row align-items-center mb-5 pb-lg-5">
       <div class="col-lg-6 mb-4 mb-lg-0">
         <div class="row g-3 align-items-center">
-          <div class="col-7">
+          <div class="col-12 col-sm-7">
             <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800"
               class="img-fluid img-rounded-custom-1 shadow-sm w-100" alt="Orígenes de la marca">
           </div>
-          <div class="col-5">
+          <div class="col-12 col-sm-5">
             <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=600"
               class="img-fluid img-rounded-custom-2 shadow-sm w-100" alt="Equipo creativo">
           </div>
@@ -169,7 +175,7 @@ function createTeamSectionTemplate() {
           <h2 class="display-6 fw-bold mb-2">Creando excelencia en equipo</h2>
           <p class="text-secondary mb-0">Nuestro éxito se apoya en el compromiso y talento de cada persona detrás de Trendy Shop.</p>
         </div>
-        <a href="../catalogo/index.html" class="btn btn-warning rounded-pill px-4 py-2 fw-semibold text-dark text-nowrap shadow-sm">Explorar Catálogo</a>
+        <a href="${catalogUrl}" class="btn btn-warning rounded-pill px-4 py-2 fw-semibold text-dark text-nowrap shadow-sm">Explorar Catálogo</a>
       </div>
 
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 justify-content-center g-4 mt-2 team-row-custom">
@@ -193,6 +199,7 @@ function renderAboutSection() {
     const ourTeamSection = createTeamSectionTemplate();
 
     aboutContainer.innerHTML = `
+    <h2 class="display-5 fw-bold text-center margin-bottom-title-section">Quiénes Somos</h2>
       ${missionAndVissionSections}
       ${ourHistorySection}
       ${ourTeamSection}

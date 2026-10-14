@@ -1,60 +1,82 @@
+/* Variables con la Paleta Oficial de la Marca */
+:root {
+    --color-negro: #101010;
+    --color-blanco-calido: #E0E0D0;
+    --color-gris-medio: #B0B0B0;
+    --color-blanco-puro: #F0F0F0;
+    --color-gris-oscuro: #404040;
+}
 
-.contacto-container {
-    max-width: 500px;
-    margin: 40px auto;
-    padding: 30px;
-    background-color: #f9f9f9;
+body.fashion-bg {
+    background-color: var(--color-blanco-calido);
+    font-family: 'Montserrat', sans-serif;
+    color: var(--color-negro);
+}
+
+.font-serif {
+    font-family: 'Playfair Display', serif;
+}
+
+.fashion-title {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 1.5px;
+    color: var(--color-negro);
+}
+
+.fashion-divider {
+    width: 60px;
+    height: 2px;
+    background-color: var(--color-negro);
+}
+
+.fashion-card {
+    background-color: var(--color-blanco-puro);
+    border-radius: 12px;
+    border: 1px solid var(--color-gris-medio) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fashion-card:hover {
+    box-shadow: 0 10px 25px rgba(16, 16, 16, 0.1) !important;
+}
+
+.text-secondary-fashion {
+    color: var(--color-gris-oscuro);
+}
+
+.fashion-input {
+    background-color: #ffffff;
+    border: 1px solid var(--color-gris-medio);
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
-}
-
-.contacto-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-#contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-}
-
-.form-group label {
-    margin-bottom: 6px;
-    font-weight: bold;
-    color: #555;
-}
-
-.form-group input, 
-.form-group textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-    width: 100%;
-    box-sizing: border-box; 
-}
-
-button[type="submit"] {
     padding: 12px;
-    background-color: #000000;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: background-color 0.2s;
+    color: var(--color-negro);
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
 }
 
-button[type="submit"]:hover {
-    background-color: #0c1c49;
+.fashion-input:focus {
+    background-color: #ffffff;
+    border-color: var(--color-negro);
+    box-shadow: 0 0 0 0.2rem rgba(16, 16, 16, 0.1);
+    outline: none;
+}
+
+.fashion-input::placeholder {
+    color: var(--color-gris-medio);
+}
+
+.btn-fashion {
+    background-color: var(--color-negro);
+    color: var(--color-blanco-puro);
+    border: none;
+    border-radius: 8px;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.btn-fashion:hover {
+    background-color: var(--color-gris-oscuro);
+    color: #ffffff;
+    transform: translateY(-2px);
 }

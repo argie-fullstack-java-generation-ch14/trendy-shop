@@ -68,6 +68,10 @@ function injectScripts(doc, path) {
     if (alreadyLoaded) return;
 
     const element = document.createElement("script");
+    Array.from(script.attributes).forEach((attribute) => {
+      if (attribute.name === "src") return;
+      element.setAttribute(attribute.name, attribute.value);
+    });
     element.src = absolute;
     element.async = false;
     document.body.appendChild(element);

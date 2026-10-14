@@ -102,10 +102,10 @@ a {
 }
 
 /* Contenedor principal */
-#footer > .container {
+#footer>.container {
   max-width: 1050px;
   margin: 0 auto;
-  padding: 10px 20px 8px;
+  padding: 60px 8px;
 }
 
 /* Columnas */
@@ -187,7 +187,7 @@ a {
 
 /* Adaptación para celulares */
 @media (max-width: 767px) {
-  #footer > .container {
+  #footer>.container {
     padding: 10px 16px 8px;
   }
 
@@ -224,7 +224,7 @@ a {
 }
 
 /* Mantener el contenido por encima del símbolo */
-#footer > .container {
+#footer>.container {
   position: relative;
   z-index: 1;
 }
@@ -291,3 +291,14 @@ a {
   box-shadow: none;
 }
 
+#header .navbar-logo {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+#footer .footer-logo {
+  height: 60px;
+  width: auto;
+  display: block;
+}

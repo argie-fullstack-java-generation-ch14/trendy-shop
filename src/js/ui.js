@@ -21,6 +21,11 @@ function resolveLinks(container) {
     if (!href || href.startsWith("#")) return;
     link.href = new URL(href, APP_BASE).href;
   });
+  container.querySelectorAll("img[src]").forEach((img) => {
+    const src = img.getAttribute("src");
+    if (!src || /^([a-z]+:|\/\/|\/|#)/i.test(src)) return;
+    img.setAttribute("src", new URL(src, APP_BASE).href);
+  });
 }
 
 function resolveModulePaths(container, path) {
